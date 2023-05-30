@@ -1,4 +1,4 @@
-from datetime import timedelta, datetime
+from datetime import timedelta
 import logging
 import smtplib
 from email.message import EmailMessage
@@ -33,7 +33,10 @@ def byte_to_gigabyte(byte):
 class Logger:
     def __init__(self, logPath):
         logging.basicConfig(
-            filename=logPath, filemode="a", level=logging.DEBUG, format="%(message)s"
+            filename=logPath,
+            filemode="a",
+            level=logging.DEBUG,
+            format="%(message)s",
         )
         self.logger = logging
 
