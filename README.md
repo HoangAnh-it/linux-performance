@@ -67,3 +67,9 @@ sudo systemctl status linuxhealth.service
 Go into /etc/linuxhealth/linuxhealth.properties
 
 ```
+## 3. Docker
+
+```bash
+docker-compose up -d
+docker-compose down
+```
