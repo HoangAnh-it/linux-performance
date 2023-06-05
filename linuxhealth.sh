@@ -16,7 +16,7 @@ sendMailToMe() {
     --mail-rcpt $MAIL \
     --user $MAIL:$PASS \
     -T <(echo -e "From: $MAIL\nTo: $MAIL\nSubject: $MAIL_SUBJECT\n\n$MAIL_BODY")
-    echo ">>> Sent mail"
+    echo ">>> Sent mail" 
 }
 
 log() {
@@ -35,9 +35,9 @@ main() {
 
     while true
     do
-        if (($(echo "$percentUsageCPU >= $LIMITED_USAGE" | bc -l))) || (($(echo "$percentUsageRAM >= $LIMITED_USAGE" | bc -l)))
+        if ([[ "$percentUsageCPU" > "$LIMITED_USAGE" ]] || [[ "$percentUsageCPU" == "$LIMITED_USAGE" ]]  || [[ "$percentUsageRAM" > "$LIMITED_USAGE" ]] || [[ "$percentUsageRAM" == "$LIMITED_USAGE" ]] )
         then
-            if [ -n "$MAIL" ] && [ -n "$MAIL_PASSWORD" ] ;then
+            if [[ -n "$MAIL" ]] && [[ -n "$MAIL_PASSWORD" ]] ;then
                 sendMailToMe $MAIL $MAIL_PASSWORD $percentUsageCPU $percentUsageRAM
             fi
         fi

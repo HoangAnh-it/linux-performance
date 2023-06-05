@@ -49,3 +49,21 @@ sudo systemctl status linuxhealth.service
 
 ## 2.3 Build file DEB
 
+[Download here](https://github.com/HoangAnh-it/linux-performance/blob/main/debian_package/linuxhealthdeb.deb)
+
+```bash
+# Install package
+sudo dpkg -i linuxhealthdeb.deb
+
+# Start service
+sudo systemctl start linuxhealth.service
+
+# Check status to make sure that linuxhealth service is active
+sudo systemctl status linuxhealth.service
+
+# More
+# Configure linuxhealth service
+# Restart service after making any changes
+Go into /etc/linuxhealth/linuxhealth.properties
+
+```
